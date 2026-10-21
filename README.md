@@ -1,5 +1,7 @@
 # Hook Follow-up for DeepSeek Harness
 
+> **一句话**：需求来自豆包、点点这类 chatbot 已经养成的“读完顺手接一句”习惯，与 DSH 用户知道想追问却懒得组织语言之间的摩擦；产品上在每轮回答末尾接一句锚定正文的追问和 1–3 条用户口吻的快捷回复，点一下即作为普通消息发出；技术上 Host 的 `followup` 工具在正文前收下 `{ hook, replies }`，经 `presentationMeta` 持久化，Client 在 `conversation.chat.turnTail` 渲染胶囊并通过 `conversation.send` 回传。
+
 在每轮回答末尾附加一句锚定正文的追问和 1–3 条用户口吻的快捷回复。快捷回复渲染成本轮末尾的胶囊按钮，点一下就把那句话作为普通用户消息发回模型。
 
 这是把「文末 Hook 追问 + 快捷回复」的产品描述落到 DSH 的一个完整插件，复用了 Intelligent UI（`@an-an-618/dsh-intelligent-ui`）验证过的扩展方式，但**不依赖**它：可以单独安装、单独卸载。
