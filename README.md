@@ -44,11 +44,9 @@ plugin_manager(action: "install_bundle", target: "/absolute/path/to/hook-followu
 
 ## Showcase
 
-![Hook Follow-up：同一轮回答 before/after](assets/before-after.png)
+![Hook Follow-up 在 DSH 对话中的真实界面](assets/showcase.webp)
 
-左：普通回答，读完还要自己想下一句。右：同一轮回答末尾多一句追问和三条快捷回复，点胶囊直接把这句话作为普通用户消息发出去。
-
-> 界面效果示意：按 DSH 对话布局渲染，实际位置与主题以安装后的界面为准。
+回答末尾会多出一句追问和 1–3 条快捷回复；点其中一条，它就会作为普通用户消息进入下一轮。下方卡片展示了同一轮里的完整流程和工具契约。
 
 ## 结论：不解析标签，也不在正文之后调工具
 
