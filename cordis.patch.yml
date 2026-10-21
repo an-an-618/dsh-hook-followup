@@ -1,0 +1,28 @@
+# Bundle layer for @an-an-618/dsh-hook-followup.
+#
+# One Host row carries both halves:
+#   * index.js + lib/  the model-facing `followup` tool, the system-prompt
+#                      section with the Hook rules, argument validation and the
+#                      persisted presentation metadata;
+#   * client.js        the browser half discovered from `dsh.client`: a compact
+#                      tool-row summary and the clickable quick replies in
+#                      `conversation.chat.turnTail`.
+- insert:
+    - id: hook-followup
+      name: '@an-an-618/dsh-hook-followup'
+      config:
+        enabled: true
+        # always = 应出尽出；balanced = 平衡；conservative = 克制
+        strategy: always
+        # Quick replies per turn, clamped to 1-3.
+        max_replies: 3
+        # ui       -> call the `followup` tool and render chips (needs client.js)
+        # markdown -> no tool; the model writes the Markdown fallback block
+        # tag      -> no tool; the model writes the <followup> tag block
+        render_mode: ui
+        # follow_user -> Hook/replies follow the user's language (prompt stays zh)
+        # zh / en     -> also fixes the prompt language
+        language: follow_user
+        # Extra omission switches (the strategy already implies its own set).
+        skip_on_refusal: true
+        skip_on_emotional: true

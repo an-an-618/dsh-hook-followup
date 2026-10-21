@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Hook Follow-up",
+    "description": "Append one anchored question and 1-3 quick replies written in the user's voice. The replies render as clickable chips at the end of the turn; one click sends that sentence back as a normal user message."
+  }
+}
