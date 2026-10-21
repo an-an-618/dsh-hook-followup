@@ -4,11 +4,23 @@
 
 这是把「文末 Hook 追问 + 快捷回复」的产品描述落到 DSH 的一个完整插件，复用了 Intelligent UI（`@an-an-618/dsh-intelligent-ui`）验证过的扩展方式，但**不依赖**它：可以单独安装、单独卸载。
 
+## 定位：轻量对话 follow，不是任务建议引擎
+
+Hook 不回答“agent 下一步该做什么”，也不做任务清单。它只做一件事：在回答下方接一句自然的追问，再给 1–3 条用户口吻的快捷回复，让下一轮对话可以一键继续——接近豆包、点点这类 chatbot 里“读完顺手就能接话”的 follow 体验。
+
+三个产品约束：
+
+- **紧接正文**：Hook 锚定刚写完的回答，不另起面板、不占输入框。
+- **轻量**：一句追问 + 最多三条回复，不引入任务分类、立场标签或会话管理。
+- **省输入也省认知**：用户不用重新组织语言，点一下就是一条普通用户消息。
+
+它和 `hiJoeLee/dsh-suggest-actions` 可以共存：后者回答“下一步做什么”，Hook 回答“我接下来自然会说什么”。
+
 ## 安装
 
 ### 从 dsh-market 安装
 
-收录后可在 [dsh-market](https://github.com/dsh-market/dsh-market) 或 [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 里搜索 `Hook Follow-up` 一键安装。收录进度见 [awesome-dsh-plugin PR](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pulls?q=an-an-618)。
+收录后可在 [dsh-market](https://github.com/dsh-market/dsh-market) 或 [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 里搜索 `Hook Follow-up` 一键安装。收录进度见 [awesome-dsh-plugin PR #8451](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/8451)。
 
 ### 直接安装（固定 commit）
 
@@ -29,6 +41,14 @@ plugin_manager(action: "install_bundle", target: "https://github.com/an-an-618/d
 ```text
 plugin_manager(action: "install_bundle", target: "/absolute/path/to/hook-followup")
 ```
+
+## Showcase
+
+![Hook Follow-up：同一轮回答 before/after](assets/before-after.png)
+
+左：普通回答，读完还要自己想下一句。右：同一轮回答末尾多一句追问和三条快捷回复，点胶囊直接把这句话作为普通用户消息发出去。
+
+> 界面效果示意：按 DSH 对话布局渲染，实际位置与主题以安装后的界面为准。
 
 ## 结论：不解析标签，也不在正文之后调工具
 
