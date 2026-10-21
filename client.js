@@ -595,7 +595,10 @@ window.__ModuleLoader__.load({
         ctx.slots.inject('conversation.chat.turnTail', () => ctx.slots.register({
           name: 'conversation.chat.turnTail',
           id: 'hook-followup',
-          order: 30,
+          // Turn tail is the last seat. Intelligent UI cards use order 40,
+          // and other answer content sits above that, so a high fixed order
+          // keeps the Hook below every piece of answer content.
+          order: 1000,
           locale: NS,
           inject,
         }, FollowupTail))

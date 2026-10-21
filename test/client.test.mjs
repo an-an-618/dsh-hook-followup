@@ -240,7 +240,7 @@ test('apply registers the locale, the keyed toolview and the turn tail', () => {
   const tail = world.registrations[1]
   assert.equal(tail.definition.name, 'conversation.chat.turnTail')
   assert.equal(tail.definition.id, 'hook-followup')
-  assert.equal(tail.definition.order, 30)
+  assert.equal(tail.definition.order, 1000)
   assert.equal(typeof tail.definition.inject, 'function')
 
   const rowConfig = world.registrations[2]

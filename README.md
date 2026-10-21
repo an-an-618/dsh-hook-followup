@@ -12,6 +12,7 @@ Hook 不回答“agent 下一步该做什么”，也不做任务清单。它只
 
 三个产品约束：
 
+- **固定最后**：Hook 永远在轮次末尾最后出现；Intelligent UI 的卡片属于回答内容，排在 Hook 之前。
 - **紧接正文**：Hook 锚定刚写完的回答，不另起面板、不占输入框。
 - **轻量**：一句追问 + 最多三条回复，不引入任务分类、立场标签或会话管理。
 - **省输入也省认知**：用户不用重新组织语言，点一下就是一条普通用户消息。
@@ -35,7 +36,7 @@ plugin_manager(action: "install_bundle", target: "git+https://github.com/an-an-6
 ### 从 Release tarball 安装
 
 ```text
-plugin_manager(action: "install_bundle", target: "https://github.com/an-an-618/dsh-hook-followup/releases/download/v0.1.0/an-an-618-dsh-hook-followup-0.1.0.tgz")
+plugin_manager(action: "install_bundle", target: "https://github.com/an-an-618/dsh-hook-followup/releases/download/v0.1.1/an-an-618-dsh-hook-followup-0.1.1.tgz")
 ```
 
 ### 从本地目录安装（开发）
@@ -110,7 +111,7 @@ plugin_manager(action: "install_bundle", target: "/Users/bytedance/Desktop/dsh t
 
 - Host `Tool.listTools` 返回 `followup`，描述与参数正确；
 - Client `tool.call.toolview` 出现 `followup` occupant（active）；
-- Client `conversation.chat.turnTail` 出现 `hook-followup` occupant（order 30，active）；
+- Client `conversation.chat.turnTail` 出现 `hook-followup` occupant（order 1000，固定在轮次末尾最后）；
 - 系统提示词里出现 `hook-followup` 段。
 
 移除：

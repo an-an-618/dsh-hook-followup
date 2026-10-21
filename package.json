@@ -1,6 +1,6 @@
 {
   "name": "@an-an-618/dsh-hook-followup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hook follow-up for DeepSeek Harness: the model appends one anchor question and 1-3 user-voice quick replies, rendered as clickable chips under the turn and sent back as one ordinary user message.",
   "type": "module",
   "license": "MIT",
