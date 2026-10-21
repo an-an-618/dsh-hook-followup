@@ -4,6 +4,32 @@
 
 这是把「文末 Hook 追问 + 快捷回复」的产品描述落到 DSH 的一个完整插件，复用了 Intelligent UI（`@an-an-618/dsh-intelligent-ui`）验证过的扩展方式，但**不依赖**它：可以单独安装、单独卸载。
 
+## 安装
+
+### 从 dsh-market 安装
+
+收录后可在 [dsh-market](https://github.com/dsh-market/dsh-market) 或 [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 里搜索 `Hook Follow-up` 一键安装。收录进度见 [awesome-dsh-plugin PR](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pulls?q=an-an-618)。
+
+### 直接安装（固定 commit）
+
+```text
+plugin_manager(action: "install_bundle", target: "git+https://github.com/an-an-618/dsh-hook-followup.git#7a90d03c3edb3f84e93dfdc7b426951857c3d6c4")
+```
+
+安装后重启 DSH 生效。
+
+### 从 Release tarball 安装
+
+```text
+plugin_manager(action: "install_bundle", target: "https://github.com/an-an-618/dsh-hook-followup/releases/download/v0.1.0/an-an-618-dsh-hook-followup-0.1.0.tgz")
+```
+
+### 从本地目录安装（开发）
+
+```text
+plugin_manager(action: "install_bundle", target: "/absolute/path/to/hook-followup")
+```
+
 ## 结论：不解析标签，也不在正文之后调工具
 
 原描述里 `render_mode = tag` 要求模型在正文末尾写 `<followup>` 标签，由前端解析后替换成按钮。这个方案在 DSH 里有两个硬问题：
